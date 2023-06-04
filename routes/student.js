@@ -56,7 +56,7 @@ router.patch('/:id',getStudent ,async (request,response)=>{
 router.delete('/:id',getStudent,async (request,response)=>{
     try{
         await response.student.deleteOne();
-        response.json({message: `Deleted the user ${response.student.name}`})
+        response.json({message: `Deleted the user ${response.params.id}`})
     }
     catch(error){
         return response.status(500).json({message: error.message})
